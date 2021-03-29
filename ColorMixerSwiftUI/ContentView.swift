@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     
     @State private var redColor = 0.0
@@ -71,7 +70,8 @@ struct ColorValueTextField: View {
                     if !changed {
                         if value > 255 {
                             alertPresented.toggle()
-                            value = 255 }
+                            value = 255
+                        }
                         else if value < 0 {
                             alertPresented.toggle()
                             value = 0
@@ -81,7 +81,7 @@ struct ColorValueTextField: View {
             .alert(isPresented: $alertPresented,
                    content: {
                     Alert(title: Text("Incorrect color value"),
-                          message: Text("Please, enter corect color value. The value must be greater than 0 and less than 255"))
+                          message: Text("Please, enter value from 0 to 255"))
                    })
             .frame(width: 50)
             .textFieldStyle(RoundedBorderTextFieldStyle())
